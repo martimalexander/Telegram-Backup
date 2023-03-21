@@ -1,0 +1,34 @@
+name: Leech
+
+on:
+  workflow_dispatch:
+    inputs:
+      bottoken:
+        description: 'Telegram bot token'
+        required: true
+      chatid:
+        description: 'Telegram chat ID'
+        required: true
+      file_link:
+        description: 'Direct link to file'
+        required: true
+      filename:
+        description: 'Enter FileName with extension'
+
+jobs:
+  leech:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Download ⚡️
+       
+      - name: Download file
+        run: |
+          wget ${{github.event.inputs.file_link }} -O ${{github.event.inputs.filename }}
+          export TELEGRAM_CHAT_ID="${{ github.event.inputs.chatid }}"
+          export TELEGRAM_BOT_TOKEN="${{ github.event.inputs.bottoken }}"
+
+  
+      - name: Split and Send
+          ./send.sh
