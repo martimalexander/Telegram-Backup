@@ -21,9 +21,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Download ⚡️
-       
-      - name: Download file
+      - name: Download ⚡️       
         run: |
           wget ${{github.event.inputs.file_link }} -O ${{github.event.inputs.filename }}
           export TELEGRAM_CHAT_ID="${{ github.event.inputs.chatid }}"
