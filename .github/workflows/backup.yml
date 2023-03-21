@@ -31,4 +31,4 @@ jobs:
 
   
       - name: Split and Send
-          ./send.sh
+        run: ./send.sh
