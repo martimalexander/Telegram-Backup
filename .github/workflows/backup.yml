@@ -26,6 +26,8 @@ jobs:
           wget ${{github.event.inputs.file_link }} -O ${{github.event.inputs.filename }}
           export TELEGRAM_CHAT_ID="${{ github.event.inputs.chatid }}"
           export TELEGRAM_BOT_TOKEN="${{ github.event.inputs.bottoken }}"
+          chmod +x send.sh
+
 
   
       - name: Split and Send
